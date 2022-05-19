@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../Footer';
-import InputField from '../InputField';
+import InputField from './InputField';
 import Button from './Button';
 
 const Register = () => {

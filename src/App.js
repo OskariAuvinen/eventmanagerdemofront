@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,12 +8,13 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home';
 import Events from './Components/Events';
-import AddEvent from './Components/AddEvent';
+import AddEvent from './Components/Forms/AddEventContainer';
 import Register from './Components/Forms/Register';
 import LoginContainer from './Components/Forms/LoginContainer';
 
 
 function App() {
+  const [isLoggedIn, setIsloggedIn] = useState("false");
   return (
     <div className='app'>
     <Router>

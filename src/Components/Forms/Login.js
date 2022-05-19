@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Footer from '../Footer';
-import InputField from '../InputField';
+import InputField from './InputField';
 
 const Login = ({
     handleEmail,
