@@ -8,7 +8,7 @@ const EventCard = ({
 }) => {
 
     return (
-        <div className="eventCard__card__container">
+        <div className="eventCard__card__container animated animatedFadeInUp fadeInUp">
             {/* <div className="eventCard__image__container">
                 <img src="./images/img1.jpg" alt="Event image"></img>
             </div> */}
