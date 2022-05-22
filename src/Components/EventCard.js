@@ -25,11 +25,11 @@ const EventCard = ({
                     <div className="eventCard__additional-info">
                         <p className="eventCard__info">
                             <i className="fas fa-map-marker-alt"></i>
-                            at: {eventSchedule.eventStartTime.weekday} {eventSchedule.eventStartTime.day}.{eventSchedule.eventStartTime.month} {eventSchedule.eventStartTime.time}
+                            at: {eventSchedule.eventStartTime.date} {eventSchedule.eventStartTime.time}
                         </p>
                         <p className="eventCard__info">
                             <i className="fas fa-map-marker-alt"></i>
-                            untill: {eventSchedule.eventEndTime.weekday} {eventSchedule.eventEndTime.day}.{eventSchedule.eventEndTime.month} {eventSchedule.eventEndTime.time}
+                            untill: {eventSchedule.eventEndTime.date} {eventSchedule.eventEndTime.time}
                         </p>
                         {isLoggedIn ? (
                             <p className="eventCard__info">
@@ -46,7 +46,7 @@ const EventCard = ({
                             {about}
                             {/* <a href={eventInfo.contactInfo.www} target="_blank"> more...</a> */}
                         </p>
-                        {eventInfo.contactInfo.www ? (<p className="eventCard__info"><a href={eventInfo.contactInfo.www} target="_blank">{eventInfo.contactInfo.www}</a></p>) : null}
+                        {eventInfo.contactInfo.www ? (<p className="eventCard__info"><a href={eventInfo.contactInfo.www} target="_blank" rel="noreferrer">{eventInfo.contactInfo.www}</a></p>) : null}
                         {eventInfo.contactInfo.phone ? (<p className="eventCard__info">Phone: {eventInfo.contactInfo.phone}</p>) : null}
                         {eventInfo.contactInfo.email ? (<p className="eventCard__info">Email: {eventInfo.contactInfo.email}</p>) : null}
                     </div>
