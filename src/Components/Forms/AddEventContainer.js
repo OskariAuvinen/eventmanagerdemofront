@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import store from '../../store';
 import AddEvent from './AddEvent';
+import postEvent from '../../Services/post-event';
 // import initialState from '../../initialState';
 import {
     setName,
@@ -193,7 +194,10 @@ const AddEventContainer = ({ }) => {
     }
     const handleEventSubmit = (e) => {
         e.preventDefault();
-        alert("handleEventSubmit called");
+        alert("handleEventSubmit called")
+        const object = store.getState().event;
+        console.log(object);
+        postEvent(object);
     };
 
     return (
