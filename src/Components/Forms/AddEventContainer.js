@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-// import store from '../../store';
+import store from '../../store';
 import AddEvent from './AddEvent';
 // import initialState from '../../initialState';
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//     setName,
-//     // setEventId,
-//     setStartDate,
-//     setStartTime,
-//     setEndDate,
-//     setEndTime,
-//     setCity,
-//     setAddress,
-//     setWww,
-//     setPhone,
-//     setEmail,
-//     setAbout
-//   } from '../../Actions/eventactions';
+import {
+    setName,
+    // setEventId,
+    setStartDate,
+    setStartTime,
+    setEndDate,
+    setEndTime,
+    setCity,
+    setAddress,
+    setWww,
+    setPhone,
+    setEmail,
+    setAbout
+  } from '../../Actions/eventactions';
 
 const AddEventContainer = ({ }) => {
+
     const defaultValues = {
         eventName: '',
         id: '',
@@ -56,8 +56,10 @@ const AddEventContainer = ({ }) => {
         setEvent(prevState => ({
             ...prevState,
             eventName: e.target.value
-        })
-        );
+        }));
+        console.log(setName(e.target.value));
+        store.dispatch(setName(e.target.value));
+        console.log(store.getState());
     }
     const handleEventStartDate = (e) => {
         e.preventDefault();

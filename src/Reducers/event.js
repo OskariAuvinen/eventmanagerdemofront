@@ -19,12 +19,12 @@ export default function (state = initialState, action) {
         case EVENT_NAME:
             return {
                 ...state,
-                eventName: payload.eventName,
+                eventName: payload,
             };
         case EVENT_ID:
             return {
                 ...state,
-                id: payload.id,
+                id: payload,
             };
         case EVENT_START_DATE:
             return {
@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
                     ...state.eventSchedule,
                     eventStartTime: {
                         ...state.eventSchedule.eventStartTime,
-                        date: payload.date
+                        date: payload
                     }
                 }
             };
@@ -44,7 +44,7 @@ export default function (state = initialState, action) {
                     ...state.eventSchedule,
                     eventStartTime: {
                         ...state.eventSchedule.eventStartTime,
-                        date: payload.time
+                        date: payload
                     }
                 }
             }
@@ -55,7 +55,7 @@ export default function (state = initialState, action) {
                     ...state.eventSchedule,
                     eventEndTime: {
                         ...state.eventSchedule.eventEndTime,
-                        date: payload.date
+                        date: payload
                     }
                 }
             }
@@ -66,7 +66,7 @@ export default function (state = initialState, action) {
                     ...state.eventSchedule,
                     eventEndTime: {
                         ...state.eventSchedule.eventEndTime,
-                        date: payload.time
+                        date: payload
                     }
                 }
             }
@@ -75,7 +75,7 @@ export default function (state = initialState, action) {
                 ...state,
                 eventInfo: {
                     ...state.eventInfo,
-                    city: payload.city
+                    city: payload
                 }
             }
         case EVENT_ADDRESS:
@@ -83,7 +83,7 @@ export default function (state = initialState, action) {
                 ...state,
                 eventInfo: {
                     ...state.eventInfo,
-                    city: payload.address
+                    city: payload
                 }
             }
         case EVENT_WWW:
@@ -93,7 +93,7 @@ export default function (state = initialState, action) {
                     ...state.eventInfo,
                     contactInfo: {
                         ...state.eventInfo.contactInfo,
-                        www: payload.www
+                        www: payload
                     }
                 }
             }
@@ -104,7 +104,7 @@ export default function (state = initialState, action) {
                     ...state.eventInfo,
                     contactInfo: {
                         ...state.eventInfo.contactInfo,
-                        phone: payload.phone
+                        phone: payload
                     }
                 }
             }
@@ -115,14 +115,14 @@ export default function (state = initialState, action) {
                     ...state.eventInfo,
                     contactInfo: {
                         ...state.eventInfo.contactInfo,
-                        email: payload.email
+                        email: payload
                     }
                 }
             }
         case EVENT_ABOUT:
         return {
             ...state,
-            about: payload.about,
+            about: payload
         };
         default:
             return state;
