@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
                 eventSchedule: {
                     ...state.eventSchedule,
                     eventStartTime: {
-                        ...state.eventStartTime,
+                        ...state.eventSchedule.eventStartTime,
                         date: payload.date
                     }
                 }
@@ -43,7 +43,7 @@ export default function (state = initialState, action) {
                 eventSchedule: {
                     ...state.eventSchedule,
                     eventStartTime: {
-                        ...state.eventStartTime,
+                        ...state.eventSchedule.eventStartTime,
                         date: payload.time
                     }
                 }
@@ -54,7 +54,7 @@ export default function (state = initialState, action) {
                 eventSchedule: {
                     ...state.eventSchedule,
                     eventEndTime: {
-                        ...state.eventEndTime,
+                        ...state.eventSchedule.eventEndTime,
                         date: payload.date
                     }
                 }
@@ -65,7 +65,7 @@ export default function (state = initialState, action) {
                 eventSchedule: {
                     ...state.eventSchedule,
                     eventEndTime: {
-                        ...state.eventEndTime,
+                        ...state.eventSchedule.eventEndTime,
                         date: payload.time
                     }
                 }
@@ -92,7 +92,7 @@ export default function (state = initialState, action) {
                 eventInfo: {
                     ...state.eventInfo,
                     contactInfo: {
-                        ...state.contactInfo,
+                        ...state.eventInfo.contactInfo,
                         www: payload.www
                     }
                 }
@@ -103,7 +103,7 @@ export default function (state = initialState, action) {
                 eventInfo: {
                     ...state.eventInfo,
                     contactInfo: {
-                        ...state.contactInfo,
+                        ...state.eventInfo.contactInfo,
                         phone: payload.phone
                     }
                 }
@@ -114,7 +114,7 @@ export default function (state = initialState, action) {
                 eventInfo: {
                     ...state.eventInfo,
                     contactInfo: {
-                        ...state.contactInfo,
+                        ...state.eventInfo.contactInfo,
                         email: payload.email
                     }
                 }

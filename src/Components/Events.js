@@ -18,7 +18,7 @@ const Events = () => {
         }
         getEvents();
     }, [])
-    if (eventList.events != undefined) {
+    if (eventList.events !== undefined) {
         return (
             <div>
                 {/* <div>

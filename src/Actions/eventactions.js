@@ -12,7 +12,7 @@ EVENT_PHONE,
 EVENT_EMAIL,
 EVENT_ABOUT,
  } from "./types";
-export const setName = (eventName) => ({
+export const setName = (eventName) =>  ({
   type: EVENT_NAME,
   payload: eventName,
 });

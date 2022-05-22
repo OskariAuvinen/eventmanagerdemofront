@@ -1,11 +1,16 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { history } from "./Helpers/history";
+import { clearMessage } from "./Actions/message";
+import { logout } from "./Actions/auth";
+// import React from 'react';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Home from './Components/Home';
 import Events from './Components/Events';
 // import AddEvent from './Components/Forms/AddEventContainer';
@@ -14,12 +19,22 @@ import LoginContainer from './Components/Forms/LoginContainer';
 import AddEventContainer from './Components/Forms/AddEventContainer';
 
 
-function App() {
-  const [isLoggedIn, setIsloggedIn] = useState("false");
 
+function App() {
+  
+  // const { user: currentUser } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+  const logOut = () => {
+    dispatch(logout());
+  };
   return (
     <div className='app'>
-      <Router>
+      <Router history={history}>
         <div className='navbar__container'>
           <ul className='navbar__listwrapper'>
             <li>

@@ -4,7 +4,7 @@ import Button from './Button';
 import InputField from './InputField';
 
 const AddEvent = ({
-    event,
+    values,
     handleEventName,
     handleEventStartDate,
     handleEventStartTime,
@@ -25,7 +25,7 @@ const AddEvent = ({
                     type="text"
                     text="Event name"
                     placeholder="Event name"
-                    value={event.eventName}
+                    value={values.eventName}
                     eventHandler={handleEventName}
                 />
                 event time:
@@ -33,14 +33,14 @@ const AddEvent = ({
                     type="date"
                     text="Start Date"
                     placeholder="Start Date"
-                    value={event.eventSchedule.eventStartTime.date}
+                    value={values.eventSchedule.eventStartTime.date}
                     eventHandler={handleEventStartDate}
                 />
                 <InputField
                     type="time"
                     text="Start Time"
                     placeholder="Start Time"
-                    value={event.eventSchedule.eventStartTime.time}
+                    value={values.eventSchedule.eventStartTime.time}
                     eventHandler={handleEventStartTime}
                 />
                 
@@ -48,14 +48,14 @@ const AddEvent = ({
                     type="date"
                     text="End Date"
                     placeholder="End Date"
-                    value={event.eventSchedule.eventEndTime.date}
+                    value={values.eventSchedule.eventEndTime.date}
                     eventHandler={handleEventEndDate}
                 />
                 <InputField
                     type="time"
                     text="End Time"
                     placeholder="End Time"
-                    value={event.eventSchedule.eventEndTime.time}
+                    value={values.eventSchedule.eventEndTime.time}
                     eventHandler={handleEventEndTime}
                 />
                 eventInfo:
@@ -63,42 +63,42 @@ const AddEvent = ({
                     type="text"
                     text="City"
                     placeholder="City"
-                    value={event.eventInfo.city}
+                    value={values.eventInfo.city}
                     eventHandler={handleEventCity}
                 />
                 <InputField
                     type="text"
                     text="Address"
                     placeholder="Address"
-                    value={event.eventInfo.address}
+                    value={values.eventInfo.address}
                     eventHandler={handleEventAddress}
                 />
                 <InputField
                     type="text"
                     text="www"
                     placeholder="www"
-                    value={event.eventInfo.contactInfo.www}
+                    value={values.eventInfo.contactInfo.www}
                     eventHandler={handleEventWww}
                 />
                 <InputField
                     type="text"
                     text="phone"
                     placeholder="phone"
-                    value={event.eventInfo.contactInfo.phone}
+                    value={values.eventInfo.contactInfo.phone}
                     eventHandler={handleEventPhone}
                 />
                 <InputField
                     type="email"
                     text="email"
                     placeholder="email"
-                    value={event.eventInfo.contactInfo.email}
+                    value={values.eventInfo.contactInfo.email}
                     eventHandler={handleEventEmail}
                 />
                 <InputField
                     type="textfield"
                     text="about"
                     placeholder="about"
-                    value={event.about}
+                    value={values.about}
                     eventHandler={handleEventAbout}
                 />
                 <Button
