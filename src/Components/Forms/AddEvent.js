@@ -16,7 +16,8 @@ const AddEvent = ({
     handleEventPhone,
     handleEventEmail,
     handleEventAbout,
-    handleEventSubmit
+    handleEventSubmit,
+    disabled
 }) => {
     return (
         <div className='container'>
@@ -104,6 +105,7 @@ const AddEvent = ({
                 <Button
                     handleSubmit={handleEventSubmit}
                     text="Submit"
+                    disabled={disabled}
                 />
             </form>
             <Footer />

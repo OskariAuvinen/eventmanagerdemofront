@@ -51,6 +51,7 @@ const AddEventContainer = ({ }) => {
     }
 
     const [event, setEvent] = useState(defaultValues);
+    const [loading, setLoading] = useState(true);
 
     const handleEventName = (e) => {
         e.preventDefault();
@@ -216,6 +217,7 @@ const AddEventContainer = ({ }) => {
                 handleEventEmail={handleEventEmail}
                 handleEventAbout={handleEventAbout}
                 handleEventSubmit={handleEventSubmit}
+                // disabled={loading}
             />
         </div>
     )
