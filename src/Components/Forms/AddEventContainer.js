@@ -15,7 +15,7 @@ import {
     setPhone,
     setEmail,
     setAbout
-  } from '../../Actions/eventactions';
+} from '../../Actions/eventactions';
 
 const AddEventContainer = ({ }) => {
 
@@ -57,9 +57,9 @@ const AddEventContainer = ({ }) => {
             ...prevState,
             eventName: e.target.value
         }));
-        console.log(setName(e.target.value));
+        // console.log(setName(e.target.value));
         store.dispatch(setName(e.target.value));
-        console.log(store.getState());
+        // console.log(store.getState());
     }
     const handleEventStartDate = (e) => {
         e.preventDefault();
@@ -72,8 +72,8 @@ const AddEventContainer = ({ }) => {
                     date: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setStartDate(e.target.value));
     }
     const handleEventStartTime = (e) => {
         e.preventDefault();
@@ -86,8 +86,8 @@ const AddEventContainer = ({ }) => {
                     time: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setStartTime(e.target.value));
     }
     const handleEventEndDate = (e) => {
         e.preventDefault();
@@ -100,8 +100,8 @@ const AddEventContainer = ({ }) => {
                     date: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setEndDate(e.target.value));
     }
     const handleEventEndTime = (e) => {
         e.preventDefault();
@@ -114,8 +114,8 @@ const AddEventContainer = ({ }) => {
                     time: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setEndTime(e.target.value));
     }
 
     const handleEventCity = (e) => {
@@ -126,8 +126,8 @@ const AddEventContainer = ({ }) => {
                 ...prevState.eventInfo,
                 city: e.target.value
             }
-        })
-        );
+        }));
+        store.dispatch(setCity(e.target.value));
     }
     const handleEventAddress = (e) => {
         e.preventDefault();
@@ -137,8 +137,8 @@ const AddEventContainer = ({ }) => {
                 ...prevState.eventInfo,
                 address: e.target.value
             }
-        })
-        );
+        }));
+        store.dispatch(setAddress(e.target.value));
     }
     const handleEventWww = (e) => {
         e.preventDefault();
@@ -151,8 +151,8 @@ const AddEventContainer = ({ }) => {
                     www: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setWww(e.target.value));
     }
     const handleEventPhone = (e) => {
         e.preventDefault();
@@ -165,8 +165,8 @@ const AddEventContainer = ({ }) => {
                     phone: e.target.value
                 }
             }
-        })
-        );
+        }));
+        store.dispatch(setPhone(e.target.value));
     }
     const handleEventEmail = (e) => {
         e.preventDefault();
@@ -179,22 +179,23 @@ const AddEventContainer = ({ }) => {
                     email: e.target.value
                 }
             }
-        })
-        );;
+        }));
+        store.dispatch(setEmail(e.target.value));
     }
     const handleEventAbout = (e) => {
         e.preventDefault();
         setEvent(prevState => ({
             ...prevState,
             about: e.target.value
-        })
-        )
+        }));
+        store.dispatch(setAbout(e.target.value));
+        console.log(store.getState());
     }
     const handleEventSubmit = (e) => {
         e.preventDefault();
         alert("handleEventSubmit called");
     };
-    
+
     return (
         <div>
             <AddEvent

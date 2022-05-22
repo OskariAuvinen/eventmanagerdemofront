@@ -83,7 +83,7 @@ export default function (state = initialState, action) {
                 ...state,
                 eventInfo: {
                     ...state.eventInfo,
-                    city: payload
+                    address: payload
                 }
             }
         case EVENT_WWW:
