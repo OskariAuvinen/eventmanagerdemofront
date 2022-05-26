@@ -39,8 +39,11 @@
 }
 
 .container {
-  display: inline-block;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .eventCard__container {
@@ -176,23 +179,23 @@
 
 @keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0)
+    transform: translate3d(0, 40px, 0)
   }
 
   to {
-      transform: translate3d(0,0,0);
-      opacity: 1
+    transform: translate3d(0, 0, 0);
+    opacity: 1
   }
 }
 
 @-webkit-keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0)
+    transform: translate3d(0, 40px, 0)
   }
 
   to {
-      transform: translate3d(0,0,0);
-      opacity: 1
+    transform: translate3d(0, 0, 0);
+    opacity: 1
   }
 }
 
@@ -211,4 +214,66 @@
   opacity: 0;
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
+}
+.addEvent_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.addEvent_textField_container {
+  position: relative;
+  margin: 24px;
+  width: 50%;
+  height: 60px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+}
+
+.addEvent_textField_field {
+  width: 100%;
+}
+
+.addEvent_datePicker_container {
+  position: relative;
+  margin: 24px;
+  width: 50%;
+  height: 60px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+}
+
+.addEvent_datePicker__field {
+  width: 100%;
+}
+
+.addEvent_timePicker_container {
+  position: relative;
+  margin: 24px;
+  width: 50%;
+  height: 60px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+}
+
+.addEvent_timePicker_field {
+  width: 100%;
+}
+
+.button__wrapper {
+  position: relative;
+  margin: 24px;
+  width: 50%;
+  height: 60px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+}
+.inputField_label {
+
 }

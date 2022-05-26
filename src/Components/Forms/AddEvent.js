@@ -21,16 +21,18 @@ const AddEvent = ({
 }) => {
     return (
         <div className='container'>
-            <form>
+            <form className='addEvent_container'>
                 <InputField
+                    className={'addEvent_textField'}
                     type="text"
                     text="Event name"
                     placeholder="Event name"
                     value={values.eventName}
                     eventHandler={handleEventName}
                 />
-                event time:
+                {/* event time: */}
                 <InputField
+                    className={'addEvent_datePicker'}
                     type="date"
                     text="Start Date"
                     placeholder="Start Date"
@@ -38,14 +40,16 @@ const AddEvent = ({
                     eventHandler={handleEventStartDate}
                 />
                 <InputField
+                    className={'addEvent_timePicker'}
                     type="time"
                     text="Start Time"
                     placeholder="Start Time"
                     value={values.eventSchedule.eventStartTime.time}
                     eventHandler={handleEventStartTime}
                 />
-                
+
                 <InputField
+                    className={'addEvent_datePicker'}
                     type="date"
                     text="End Date"
                     placeholder="End Date"
@@ -53,14 +57,16 @@ const AddEvent = ({
                     eventHandler={handleEventEndDate}
                 />
                 <InputField
+                    className={'addEvent_timePicker'}
                     type="time"
                     text="End Time"
                     placeholder="End Time"
                     value={values.eventSchedule.eventEndTime.time}
                     eventHandler={handleEventEndTime}
                 />
-                eventInfo:
+                {/* eventInfo: */}
                 <InputField
+                    className={'addEvent_textField'}
                     type="text"
                     text="City"
                     placeholder="City"
@@ -68,6 +74,7 @@ const AddEvent = ({
                     eventHandler={handleEventCity}
                 />
                 <InputField
+                    className={'addEvent_textField'}
                     type="text"
                     text="Address"
                     placeholder="Address"
@@ -75,6 +82,7 @@ const AddEvent = ({
                     eventHandler={handleEventAddress}
                 />
                 <InputField
+                    className={'addEvent_textField'}
                     type="text"
                     text="www"
                     placeholder="www"
@@ -82,6 +90,7 @@ const AddEvent = ({
                     eventHandler={handleEventWww}
                 />
                 <InputField
+                    className={'addEvent_textField'}
                     type="text"
                     text="phone"
                     placeholder="phone"
@@ -89,6 +98,7 @@ const AddEvent = ({
                     eventHandler={handleEventPhone}
                 />
                 <InputField
+                    className={'addEvent_textField'}
                     type="email"
                     text="email"
                     placeholder="email"
@@ -96,6 +106,7 @@ const AddEvent = ({
                     eventHandler={handleEventEmail}
                 />
                 <InputField
+                    className={'addEvent_textField'}
                     type="textfield"
                     text="about"
                     placeholder="about"
@@ -103,6 +114,7 @@ const AddEvent = ({
                     eventHandler={handleEventAbout}
                 />
                 <Button
+                    // className={'addEvent_submitButton'}
                     handleSubmit={handleEventSubmit}
                     text="Submit"
                     disabled={disabled}
