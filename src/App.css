@@ -41,9 +41,11 @@
 .container {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .eventCard__container {
@@ -215,65 +217,101 @@
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
 }
+
 .addEvent_container {
-    width: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 100px);
+
+  /* @media screen and (max-width: 600px) {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+  } */
 }
+
 
 .addEvent_textField_container {
   position: relative;
-  margin: 24px;
-  width: 50%;
+  margin: 24px auto 24px auto;
+  width: 90%;
   height: 60px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  min-width: 320px;
 }
 
 .addEvent_textField_field {
   width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #18537a;
+  bottom: 0;
+  position: absolute;
+  height: 70%;
+}
+.addEvent_textField_field:focus{
+  outline: none;
 }
 
-.addEvent_datePicker_container {
+/* .addEvent_datePicker_container {
   position: relative;
-  margin: 24px;
-  width: 50%;
+  margin: 24px auto 24px auto;
+  width: 90%;
   height: 60px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  min-width: 320px;
 }
 
-.addEvent_datePicker__field {
+.addEvent_datePicker_field {
   width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #18537a;
+  bottom: 0;
+  position: absolute;
+  height: 70%;
 }
 
 .addEvent_timePicker_container {
   position: relative;
-  margin: 24px;
-  width: 50%;
+  margin: 24px auto 24px auto;
+  width: 90%;
   height: 60px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 30px 5px rgb(0 0 0 / 15%);
+  min-width: 320px;
 }
 
 .addEvent_timePicker_field {
   width: 100%;
-}
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #18537a;
+  bottom: 0;
+  position: absolute;
+  height: 70%;
+} */
 
 .button__wrapper {
   position: relative;
-  margin: 24px;
-  width: 50%;
+  margin: 24px auto 24px auto;
+  width: 100%;
   height: 60px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  min-width: 320px;
 }
-.inputField_label {
 
-}
+.inputField_label {}

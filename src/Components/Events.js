@@ -56,7 +56,7 @@ const Events = () => {
 
     if (eventList.events !== undefined) {
         return (
-            <div>
+            <div className=''>
                 Sort events
                 <select onChange={e => handleOptionChange(e)}>
                     <option defaultValue value={"date"}>By Starting date</option>
@@ -66,7 +66,7 @@ const Events = () => {
                 Events:
             </div>
             <br></br> */}
-                <div className='container'>
+                <div className='eventCard__container'>
                     {eventList.events.map((event, index) => (
                         
                         <EventCard
