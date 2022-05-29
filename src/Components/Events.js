@@ -18,7 +18,7 @@ const Events = () => {
     const paramToStringAndToInt = (param) => {
         let helper = '';
         for (let i = 0; i < param.eventSchedule.eventStartTime.date.length; i++) {
-            if (param.eventSchedule.eventStartTime.date[i] != '-') {
+            if (param.eventSchedule.eventStartTime.date[i] !==   '-') {
                 helper = helper + param.eventSchedule.eventStartTime.date[i]
             }
         }
@@ -28,12 +28,10 @@ const Events = () => {
     }
 
     useEffect(() => {
-        let unmounted = false;
         async function getEvents() {
             const res = await axios(
                 'http://localhost:8080/events',
             );
-            if (!unmounted) {
                 setEventList(res.data);
                 // console.log(res.data.events);
                 // if (filterEvents == "date") {
@@ -49,7 +47,6 @@ const Events = () => {
                 //     console.log(byLocation);
                 // }
                 setLoading(false);
-            }
         }
         getEvents();
     }, [])

@@ -7,7 +7,9 @@ const Button = ({ text, handleSubmit, disabled }) => {
             <button
                 // disabled={disabled}
                 className='button'
-                onClick={handleSubmit}>{text}</button>
+                onClick={handleSubmit}>
+                <span className='button_text'>{text}</span>
+                    </button>
         </div>
     )
 }
