@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from './Footer';
 import EventCard from './EventCard';
+import InputField from './Forms/InputField';
 // let byDate = [];
 // let byLocation = [];
 
@@ -10,21 +11,20 @@ const Events = () => {
 
     const [eventList, setEventList] = useState({});
     const [filterEvents, setFilterEvents] = useState("date");
+    const [filter, setFilter] = useState("");
     const [loading, setLoading] = useState(true);
+
     const handleOptionChange = (e) => {
         e.preventDefault();
+        // console.log(e.target.value);
+        setFilter('');
         setFilterEvents(e.target.value);
     }
-    const paramToStringAndToInt = (param) => {
-        let helper = '';
-        for (let i = 0; i < param.eventSchedule.eventStartTime.date.length; i++) {
-            if (param.eventSchedule.eventStartTime.date[i] !==   '-') {
-                helper = helper + param.eventSchedule.eventStartTime.date[i]
-            }
-        }
-        // console.log(helper);
-        // helper = helper.parseInt(helper);
-        return helper;
+    
+    const handleFilter = (e) => {
+        e.preventDefault();
+        // console.log(e.target.value);
+        setFilter(e.target.value);
     }
 
     useEffect(() => {
@@ -32,40 +32,50 @@ const Events = () => {
             const res = await axios(
                 'http://localhost:8080/events',
             );
-                setEventList(res.data);
-                // console.log(res.data.events);
-                // if (filterEvents == "date") {
-                //     byDate = res.data.events.sort((a, b) => paramToStringAndToInt(a) > paramToStringAndToInt(b) ? 1 : -1);
-                //     setEventList(byDate);
-                //     console.log(eventList);
-                //     console.log(byDate);
-                // }
-                // if (filterEvents == "location") {
-                //     byLocation = res.data.events.sort((a, b) => a.eventInfo.city > b.eventInfo.city ? 1 : -1);
-                //     setEventList(byLocation);
-                //     console.log(eventList);
-                //     console.log(byLocation);
-                // }
-                setLoading(false);
+            setEventList(res.data);
+            setLoading(false);
         }
         getEvents();
     }, [])
 
+
     if (eventList.events !== undefined) {
+        const filteredByName = eventList.events.filter(event => event.eventName.toLowerCase().substring(0, filter.length) === filter.toLowerCase());
+        const filteredByLocationName = eventList.events.filter(event => event.eventInfo.city.toLowerCase().substring(0, filter.length) === filter.toLowerCase());
+        //default filter -- filter newest first
+        const filteredByDate = eventList.events.sort(function compare(a, b) {
+            if (a.eventSchedule.eventStartTime.date < b.eventSchedule.eventStartTime.date) {
+              return -1;
+            }
+            if (a.eventSchedule.eventStartTime.date > b.eventSchedule.eventStartTime.date) {
+              return 1;
+            }
+            return 0;
+          });
+        //   console.log(filteredByDate);
         return (
             <div className=''>
-                Sort events
-                <select onChange={e => handleOptionChange(e)}>
-                    <option defaultValue value={"date"}>By Starting date</option>
-                    <option value={"location"}>By Location</option>
-                </select>
-                {/* <div>
-                Events:
-            </div>
-            <br></br> */}
+                Sort events:
+                <div>
+                    <select onChange={e => handleOptionChange(e)}>
+                        <option defaultValue value={"date"}>By Starting date</option>
+                        <option value={"location"}>By Location</option>
+                        <option value={"name"}>By Name</option>
+                    </select>
+                </div>
+                {filterEvents === 'name' && (
+                <div>
+                <div>
+                    <InputField
+                        className={'addEvent_textField'}
+                        type={"text"}
+                        text={'Search by name'}
+                        placeholder={'Search by name'}
+                        value={filter}
+                        eventHandler={handleFilter} />
+                </div>
                 <div className='eventCard__container'>
-                    {eventList.events.map((event, index) => (
-                        
+                    {filteredByName.map((event, index) => (
                         <EventCard
                             key={index}
                             eventName={event.eventName}
@@ -74,8 +84,60 @@ const Events = () => {
                             participants={event.participants}
                             about={event.about}
                         />
-                    )) }
+                    ))}
                 </div>
+                </div> 
+                )}
+                {filterEvents === 'location' && (
+                <div>
+                <div>
+                    <InputField
+                        className={'addEvent_textField'}
+                        type={"text"}
+                        text={'Search by Location'}
+                        placeholder={'Search by Location'}
+                        value={filter}
+                        eventHandler={handleFilter} />
+                </div>
+                <div className='eventCard__container'>
+                    {filteredByLocationName.map((event, index) => (
+                        <EventCard
+                            key={index}
+                            eventName={event.eventName}
+                            eventSchedule={event.eventSchedule}
+                            eventInfo={event.eventInfo}
+                            participants={event.participants}
+                            about={event.about}
+                        />
+                    ))}
+                </div>
+                </div> 
+                )}
+                {filterEvents === 'date' && (
+                <div>
+                {/* <div>
+                    <InputField
+                        className={'addEvent_textField'}
+                        type={"text"}
+                        text={'Search by Location'}
+                        placeholder={'Search by Location'}
+                        value={filter}
+                        eventHandler={handleFilter} />
+                </div> */}
+                <div className='eventCard__container'>
+                    {filteredByDate.map((event, index) => (
+                        <EventCard
+                            key={index}
+                            eventName={event.eventName}
+                            eventSchedule={event.eventSchedule}
+                            eventInfo={event.eventInfo}
+                            participants={event.participants}
+                            about={event.about}
+                        />
+                    ))}
+                </div>
+                </div> 
+                )}
                 <Footer />
             </div>
 
