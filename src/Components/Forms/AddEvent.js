@@ -114,7 +114,7 @@ const AddEvent = ({
 
 
     return (
-        <div className='wrapper'>
+        <div className='container'>
             <form className='addEvent_container'>
             {fields.map((item, index) => (  
                         <InputField
